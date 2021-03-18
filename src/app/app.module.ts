@@ -6,10 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { NewProductComponent } from './new-product/new-product.component';
-import { SalesComponent } from './sales/sales.component';
+import { LoginComponent } from './components/login/login.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { NewProductComponent } from './components/new-product/new-product.component';
+import { SalesComponent } from './components/sales/sales.component';
 
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
@@ -19,13 +19,13 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
-import { ToolbarModule } from 'primeng/toolbar';
-import { ConfirmationService } from 'primeng/api';
+import { PanelModule } from 'primeng/panel';
+import { CardModule } from 'primeng/card';
+import { DividerModule } from 'primeng/divider';
 
 import { MenubarModule } from 'primeng/menubar';
-import { MenuBarComponent } from './menu-bar/menu-bar.component'
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component'
 import { TooltipModule } from 'primeng/tooltip';
 import { RippleModule } from 'primeng/ripple';
 
@@ -55,7 +55,9 @@ import { CalendarModule } from 'primeng/calendar';
     PasswordModule,
     CalendarModule,
     DialogModule,
-    ToolbarModule,
+    PanelModule,
+    CardModule,
+    DividerModule,
     ConfirmDialogModule,
     RatingModule,
     InputNumberModule,
@@ -66,7 +68,7 @@ import { CalendarModule } from 'primeng/calendar';
     TooltipModule,
     RippleModule
   ],
-  providers: [ConfirmationService, CheckUrlService],
+  providers: [CheckUrlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

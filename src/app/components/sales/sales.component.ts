@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PotatoSalesService } from '../services/potato-sales/potato-sales.service';
+import { PotatoSalesService } from '../../services/potato-sales/potato-sales.service';
 
 @Component({
   selector: 'app-sales',

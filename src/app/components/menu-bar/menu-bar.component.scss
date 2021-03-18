@@ -1,0 +1,41 @@
+.ps-logo-title {
+  color: var(--teal-600);
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  font-weight: normal;
+  font-size: 1.5rem;
+  border-radius: 0.25rem;
+
+  span {
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+  a{
+    color: var(--teal-600);
+    text-decoration: none;
+  }
+}
+
+:host ::ng-deep .p-menubar {
+  background-color: var(--teal-600);
+  padding: 0.5rem 1rem 0rem;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link{
+    .p-menuitem-text,.p-menuitem-icon{
+    color:#fff !important;
+    }
+    
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link-active,
+:host ::ng-deep .p-menubar .p-menuitem-link:not(.p-disabled):hover {
+    background: var(--teal-300)!important;
+  .p-menuitem-text, .p-menuitem-icon {
+    color:var(---surface-900)!important;
+  }
+}
+
+// :host ::ng-deep .p-toolbar{
+//     background-color: var(--teal-600);
+// }
