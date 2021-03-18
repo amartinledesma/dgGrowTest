@@ -1,0 +1,18 @@
+<p-menubar [model]="items" styleClass="alex">
+  <ng-template pTemplate="start">
+    <h1 [ngClass]="'ps-logo-title'">POTATO<span>sales</span></h1>
+  </ng-template>
+  <ng-template pTemplate="end">
+    <button
+      type="button"
+      class="p-button-secondary"
+      pButton
+      pRipple
+      icon="pi pi-fw pi-power-off"
+      iconPos="left"
+      pTooltip="Log out"
+      tooltipPosition="left"
+      (click)="logOut()"
+    ></button>
+  </ng-template>
+</p-menubar>

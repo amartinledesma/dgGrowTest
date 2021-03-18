@@ -1,0 +1,43 @@
+<p-table [columns]="cols" [value]="products">
+  <ng-template pTemplate="header">
+    <!-- let-columns> -->
+    <tr>
+      <th
+        *ngFor="let col of cols"
+        [colSpan]="col?.subHeaders ? col?.subHeaders.length : 1"
+        [rowSpan]="col?.subHeaders ? 1 : 2"
+        [ngClass]="col?.subHeaders ? 'text-center' : !(col?.field) ? 'ps-bg-totals-table':''"
+      >
+        {{ col.header }}
+      </th>
+    </tr>
+    <tr>
+      <ng-template ngFor let-col [ngForOf]="cols">
+        <th *ngFor="let subheader of col?.subHeaders">
+          {{ subheader?.header }}
+        </th>
+      </ng-template>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-i let-columns="columns">
+    <tr>
+      <td
+        *ngFor="let col of cols"
+        [colSpan]="col?.subHeaders?.length"
+        [ngClass]="col?.subHeaders ? 'm-0 p-0' : !(col?.field) ? 'ps-bg-totals-table' : ''"
+      >
+        {{
+            ((col?.field) || (col?.subHeaders)) ? 
+                rowData[col?.field] : calcTotal(rowData)
+            }}
+        <table *ngIf="col?.subHeaders">
+          <tr>
+            <td *ngFor="let subheader of col?.subHeaders" class="p-3">
+              {{ rowData[subheader.field] }}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

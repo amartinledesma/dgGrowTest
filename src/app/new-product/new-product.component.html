@@ -1,0 +1,41 @@
+<div 
+  class="p-grid p-jc-center vertical-container"
+  style="height: 100vh; background-color: var(--surface-200)"
+>
+<div class="card p-col-10" style="height: 500px; word-wrap: unset;">
+    <h5>Add a new Product</h5>
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-12 p-md-6">
+        <label for="productName">Product Name</label>
+        <input id="productName" type="text" aria-describedby="productName-error" pInputText required [(ngModel)]="text1" maxlength="50"/>
+        <small id="productName-error" class="p-error">Username is not available.</small>
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="productId">Product Id</label>
+        <p-inputNumber
+          inputId="productId"
+          mode="decimal"
+          [useGrouping]="false"
+          maxLength="13"
+          [(ngModel)]="text1"
+          [required]=true
+        >
+        </p-inputNumber>
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="city">Product Manager</label>
+        <input id="city" type="text" pInputText maxlength="30"/>
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="salesStartDate">Sales Start Date</label>
+         <p-calendar
+          [(ngModel)]="date1"
+          [showIcon]="true"
+          inputId="salesStartDate"
+          maxlength="10"
+          [required]=true
+        ></p-calendar>
+      </div>
+    </div>
+  </div>
+</div>
