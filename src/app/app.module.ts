@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +25,8 @@ import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 
 import { MenubarModule } from 'primeng/menubar';
-import { MenuBarComponent } from './components/menu-bar/menu-bar.component'
+import { ToolbarModule } from 'primeng/toolbar';
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { TooltipModule } from 'primeng/tooltip';
 import { RippleModule } from 'primeng/ripple';
 
@@ -33,7 +34,8 @@ import { CheckUrlService } from './services/check-url/check-url.service';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 
-
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { CalendarModule } from 'primeng/calendar';
     WelcomeComponent,
     NewProductComponent,
     SalesComponent,
-    MenuBarComponent
+    MenuBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { CalendarModule } from 'primeng/calendar';
     TableModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     InputTextModule,
     PasswordModule,
     CalendarModule,
@@ -65,10 +68,13 @@ import { CalendarModule } from 'primeng/calendar';
     DropdownModule,
     ButtonModule,
     MenubarModule,
+    ToolbarModule,
     TooltipModule,
-    RippleModule
+    RippleModule,
+    MessagesModule,
+    MessageModule,
   ],
   providers: [CheckUrlService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

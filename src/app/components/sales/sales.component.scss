@@ -1,4 +1,23 @@
-.ps-bg-totals-table{
-    background:var(--teal-600) !important;
-    color:#fff !important;
+.ps-bg-totals-table {
+  background: var(--teal-50) !important;
+}
+// .p-datatable .ps-bg-totals-table.p-sortable-column .p-sortable-column-badge{
+:host ::ng-deep .p-datatable .p-sortable-column.p-highlight {
+  color: var(--teal-600);
+}
+:host ::ng-deep .p-datatable .p-sortable-column {
+  .p-sortable-column-icon {
+    &.pi-sort-amount-up-alt,
+    &.pi-sort-amount-down {
+      color: var(--teal-600);
+    }
+  }
+  .p-sortable-column-badge {
+    background: var(--teal-600);
+  }
+  &.ps-bg-totals-table {
+    .p-sortable-column-badge {
+      color: #fff;
+    }
+  }
 }

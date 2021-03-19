@@ -1,13 +1,15 @@
+
 <div class="p-grid p-jc-center p-ai-center vertical-container" style="height:100vh;">
-    <div class="card p-col-3 p-0">
+    
+    <div class="card col-10 col-md-8 col-lg-6 col-xl-3 p-0">
         <div class="py-0.5 rounded-top" style="background-color: var(--teal-600); color:#fff; font-size: 1.5rem;">
             <span class="px-2"><i class="bi bi-hexagon-half pr-1" style="font-size: 1.3rem; vertical-align: text-bottom;"></i>POTATO<i style="font-size: 1.1rem;">sales</i></span>
         </div>
-        <div class="p-4">
+        <div class="py-4 px-2 px-md-4">
             <div class="p-field p-grid">
                 <label for="firstname" class="p-col-3 p-mb-1">Username</label>
                 <div class="p-col-9">
-                    <input id="username" type="text" pInputText> 
+                    <input [formControl]="userName" type="text" pInputText > 
                 </div>
             </div>
 
@@ -15,12 +17,14 @@
             <div class="p-field p-grid">
                 <label for="password" class="p-col-3 p-mb-1">Password</label>
                 <div class="p-col-9">
-                    <p-password [toggleMask]="true"></p-password>
+                    <input  [formControl]="password" type="password" pInputText > 
                 </div>
             </div> 
-            <div class="p-grid p-jc-end pt-3 mr-0.8">
-            <button pButton pRipple type="button" label="Submit" class="p-button-raised p-button-sm mr-2" (click)="handleClick()"></button>
-            <button pButton pRipple type="button" label="Cancel" class="p-button-raised p-button-sm p-button-secondary"></button></div>
+            <div class="p-grid p-jc-end pt-3 mr-0">
+            <button pButton pRipple type="button" label="Submit" class="p-button-raised p-button-sm mr-2" (click)="validateLogin()"></button>
+            <button pButton pRipple type="button" label="Cancel" class="p-button-raised p-button-sm p-button-secondary" (click)="resetForm()"></button></div>
         </div>
+        <p-messages [(value)]="msgs" styleClass="m-3 login-msgs"></p-messages>
     </div>
+    
 </div>

@@ -11,8 +11,8 @@ export class AuthService {
 
   constructor(private http:HttpClient) { }
 
-  getValidUsers = ():Observable<Auth>  =>{
-    return this.http.get<Auth>('assets/mocks/users.json');
+  getValidUsers = ():Observable<any>  =>{
+    return this.http.get<JSON>('assets/mock/users.json');
   }
 
 }
