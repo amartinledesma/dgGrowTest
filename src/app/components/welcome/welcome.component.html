@@ -1,5 +1,6 @@
 <div class="p-component p-jc-center my-2">
   <div class="p-grid p-jc-center my-4">
+    
     <p-card class="col-10 col-md-8 px-3">
       <ng-template pTemplate="header">
         <h5
@@ -15,6 +16,12 @@
           Welcome to the Potato Sales App
         </h5>
       </ng-template>
+      <p-toolbar >
+        <div class="p-toolbar-group-left">
+            <button pRipple pButton label="New Product" icon="pi pi-plus" [routerLink]="['/new-product']" class="p-button-sm mr-3"></button>
+            <button pRipple pButton label="Sales" icon="pi pi-chart-line" [routerLink]="['/sales']" class="p-button-sm"></button>
+        </div>
+    </p-toolbar>
       <p class="text-justify">
         Quisque libero mi, vestibulum eu porttitor interdum, finibus sed arcu.
         Fusce sit amet nibh eget quam rhoncus laoreet non id felis. Nulla ac
@@ -26,38 +33,6 @@
         metus sit amet tristique imperdiet, ligula turpis facilisis risus,
         sodales semper justo velit in arcu. Proin urna arcu, commodo non
         scelerisque non, hendrerit et dolor.
-      </p>
-      <p class="text-justify">
-        Pellentesque nibh dolor, eleifend et nisl sit amet, mollis elementum
-        augue. Aliquam ut nibh eleifend, volutpat sapien egestas, mollis est.
-        Fusce sed laoreet urna, ac auctor purus. Donec mattis vitae ipsum eget
-        mollis. Nam est felis, commodo fringilla erat porttitor, accumsan tempus
-        lacus. Donec tortor lacus, accumsan in congue eget, bibendum quis
-        ligula. Donec consectetur, ipsum ut viverra interdum, dui elit tristique
-        arcu, et lobortis felis justo ac magna. Suspendisse quis feugiat sem.
-        Mauris non neque non ex venenatis dapibus. Ut sit amet euismod ante.
-        Donec lobortis semper nibh a varius. Sed vel urna sed quam vehicula
-        ultrices eget a purus. Vivamus est nisi, varius vel ultrices
-        ullamcorper, lobortis ut diam. Vivamus vulputate nunc vehicula, lobortis
-        eros eget, aliquet risus. Duis lobortis tempor erat, ac sodales erat
-        pretium vel.
-      </p>
-      <p class="text-justify">
-        Proin ut lobortis sapien, sit amet bibendum lacus. Nullam tempus
-        scelerisque diam in efficitur. Vivamus feugiat, nulla vitae facilisis
-        blandit, urna leo volutpat mauris, ac venenatis diam arcu eget arcu.
-        Aenean sagittis enim sed dolor facilisis egestas. Nam eget elit ut
-        libero varius convallis. Quisque cursus, metus ac imperdiet vestibulum,
-        elit elit vulputate libero, vel eleifend massa dui nec augue. Class
-        aptent taciti sociosqu ad litora torquent per conubia nostra, per
-        inceptos himenaeos. Nam sed orci eget nibh interdum pretium non vitae
-        lectus. Fusce viverra, turpis a vestibulum vestibulum, nisi urna
-        placerat velit, quis iaculis dui odio at dolor. Aliquam mauris turpis,
-        dictum nec consectetur rhoncus, auctor et elit. In eros odio, rhoncus
-        non consectetur sed, ultricies quis sapien. Pellentesque sit amet augue
-        felis. Nam viverra tortor in scelerisque condimentum. Mauris vitae porta
-        metus, at euismod lacus. Donec semper mi egestas sagittis porta.
-        Pellentesque ullamcorper auctor nunc, a congue ligula sollicitudin non.
       </p>
     </p-card>
   </div>

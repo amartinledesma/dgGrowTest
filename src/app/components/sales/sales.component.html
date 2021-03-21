@@ -14,7 +14,7 @@
         Sales Report
       </h5>
     </ng-template>
-    <p-table #dt [columns]="cols" [value]="potatoes" sortMode="multiple" styleClass="p-datatable-sm p-datatable-striped" [globalFilterFields]="searchableFields">
+    <p-table #dt [columns]="cols" [value]="potatoSalesList" sortMode="multiple" styleClass="p-datatable-sm p-datatable-striped p-datatable-responsive-demo" [globalFilterFields]="searchableFields">
       <ng-template pTemplate="caption">
         <div class="d-flex align-items-center py-0">
           <span>Potato Sales</span>
@@ -25,7 +25,6 @@
         </div>
       </ng-template>
       <ng-template pTemplate="header">
-        <!-- let-columns> -->
         <tr>
           <th
             *ngFor="let col of cols"
@@ -81,15 +80,24 @@
           </td>
         </tr>
       </ng-template>
-      <p-toolbar styleClass="p-mb-4">
-        <ng-template pTemplate="left">
-            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
-            <!-- <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button> -->
-        </ng-template>
-    </p-toolbar>
+      
     </p-table>
+
+    <div class="d-flex p-col-12 p-jc-end pt-4">
+      <p-button
+        pRipple
+        label="Add New Product"
+        class="p-button-raised p-button-sm p-button col-12 col-sm-6 col-md-3 col-lg-2 p-0 mr-n2"
+        (click)="openAddNewProduct()"
+        icon="pi pi-plus"
+        iconPos="right"
+      ></p-button>
+    </div>
   </p-card>
 </div>
-<p-dialog [(visible)]="potatoDialog" [style]="{width: '50%'}" [modal]="true" styleClass="p-fluid">
-  <app-new-product></app-new-product>
+<p-dialog [(visible)]="potatoDialog" header="Add New Product" (onHide)="refreshSalesList()" [modal]="true" styleClass="p-fluid col-11 col-sm-9 col-md-8 col-lg-6 p-0">
+  <app-new-product [inDialog]="true"></app-new-product>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="potatoDialog=false" label="OK" styleClass="p-button-text"></p-button>
+  </ng-template>
 </p-dialog>

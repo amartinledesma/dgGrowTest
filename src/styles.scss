@@ -1,9 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
-body{
-    margin:0px;
-    padding:0px;
-    background-color: var(--surface-200);
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: var(--surface-200);
 }
 .p-card .p-card-body {
-    padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
+}
+.p-messages .p-message {
+  font-size: 1rem !important;
+}
+.p-message-icon {
+  display: none;
+}
+.p-inputtext.ng-touched.ng-invalid {
+  border-color: #dc3545;
+}
+input[type="number"] {
+  -moz-appearance: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.p-button {
+  width: 100%;
+}
+
+.p-datatable-responsive-demo .p-datatable-tbody > tr > td .p-column-title {
+  display: none;
+}
+
+@media screen and (max-width: 80rem) {
+  .p-datatable {
+    &.p-datatable-responsive-demo {
+      .p-datatable-thead > tr > th,
+      .p-datatable-tfoot > tr > td {
+        display: none !important;
+      }
+
+      .p-datatable-tbody > tr > td {
+        text-align: left;
+        display: block;
+        width: 100%;
+        float: left;
+        clear: left;
+        border: 0 none;
+
+        .p-column-title {
+          padding: 0.4rem;
+          min-width: 30%;
+          display: inline-block;
+          margin: -0.4em 1em -0.4em -0.4rem;
+          font-weight: bold;
+        }
+
+        &:last-child {
+          border-bottom: 1px solid var(--surface-d);
+        }
+      }
+    }
+  }
 }

@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
         userName: this.userName.value,
         password: this.password.value,
       };
-      let userMatch: boolean = false;
       let userExists: boolean=false;
       userExists = this.userExists(loginUser.userName,loginUser.password);
       if(userExists)this.router.navigate(['/welcome']) 

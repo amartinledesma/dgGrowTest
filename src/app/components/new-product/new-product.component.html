@@ -1,6 +1,6 @@
 <div class="p-grid p-jc-center my-4">
-  <p-card class="col-10 col-md-8 px-3">
-    <ng-template pTemplate="header">
+  <p-card [class]="currentURL.includes('sales') ? 'col-12 px-3 add-product-sales' : 'col-10 col-md-8 px-3'">
+    <ng-template pTemplate="header" *ngIf="!currentURL.includes('sales')">
       <h5
         style="
           background-color: var(--surface-100);
@@ -14,63 +14,173 @@
         Add a new Product
       </h5>
     </ng-template>
-    <div class="p-fluid p-formgrid p-grid">
-      <div class="p-field p-col-12 p-md-6">
-        <label for="productName">Product Name</label>
-        <input
-          id="productName"
-          type="text"
-          aria-describedby="productName-error"
-          pInputText
-          required
-          [(ngModel)]="text1"
-          maxlength="50"
-        />
+    <form [formGroup]="formNewProduct" (ngSubmit)="submitForm()">
+      <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-6">
+          <label for="productName">Product Name</label>
+          <input
+            type="text"
+            pInputText
+            formControlName="productName"
+            required
+            maxlength="50"
+          />
+          <small
+            id="productNameReq-help"
+            class="p-error"
+            *ngIf="
+              (formNewProductControl.productName.dirty ||
+                formNewProductControl.productName.touched ||
+                formSubmitted) &&
+              formNewProductControl.productName?.errors?.required
+            "
+            >Please, introduce a Product Name</small
+          >
+          <small
+            id="productNameMax-help"
+            class="p-error"
+            *ngIf="
+              (formNewProductControl.productName.dirty ||
+                formNewProductControl.productName.touched ||
+                formSubmitted) &&
+              formNewProductControl.productName?.errors?.maxlength
+            "
+            >The max number of characters allowed is
+            {{
+              formNewProductControl.productName?.errors?.maxlength
+                ?.requiredLength
+            }}</small
+          >
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="productId">Product Id</label>
+          <input
+            type="number"
+            pInputText
+            formControlName="productID"
+            maxlength="13"
+            required
+            pattern="^([0-9]{13})$"
+          />
+          <small
+            id="productIDReq-help"
+            class="p-error"
+            *ngIf="
+              (formNewProductControl.productID.dirty ||
+                formNewProductControl.productID.touched ||
+                formSubmitted) &&
+              formNewProductControl.productID?.errors
+            "
+            >Please, introduce a valid Product ID. Format allowed is 13
+            numbers</small
+          >
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="city">Product Manager</label>
+          <input
+            formControlName="productManager"
+            type="text"
+            pInputText
+            maxlength="30"
+            required
+          />
+          <small
+            id="productManagerReq-help"
+            class="p-error"
+            *ngIf="
+              (formNewProductControl.productManager.dirty ||
+                formNewProductControl.productManager.touched ||
+                formSubmitted) &&
+              formNewProductControl.productManager?.errors?.required
+            "
+            >Please, introduce a Product Manager</small
+          >
+          <small
+            id="productManagerMax-help"
+            class="p-error"
+            *ngIf="
+              (formNewProductControl.productManager.dirty ||
+                formNewProductControl.productManager.touched ||
+                formSubmitted) &&
+              formNewProductControl.productManager?.errors?.maxlength
+            "
+            >The max number of characters allowed is
+            {{
+              formNewProductControl.productManager?.errors?.maxlength
+                ?.requiredLength
+            }}</small
+          >
+        </div>
+        <div class="p-field p-col-12 p-md-6">
+          <label for="salesStartDate">Sales Start Date</label>
+          <p-calendar
+            [showIcon]="true"
+            inputId="salesStartDate"
+            maxlength="10"
+            [required]="true"
+            formControlName="salesStartDate"
+            [readonlyInput]="true"
+          ></p-calendar>
+          <small
+            id="salesStartDateReq-help"
+            class="p-error"
+            *ngIf="
+              (formNewProductControl.salesStartDate.dirty ||
+                formNewProductControl.salesStartDate.touched ||
+                formSubmitted) &&
+              formNewProductControl.salesStartDate?.errors?.required
+            "
+            >Please, introduce a Sales Start Date</small
+          >
+          <small
+            id="salesStartDateMax-help"
+            class="p-error"
+            *ngIf="
+              (formNewProductControl.salesStartDate.dirty ||
+                formNewProductControl.salesStartDate.touched ||
+                formSubmitted) &&
+              formNewProductControl.salesStartDate?.errors?.maxlength
+            "
+            >The max number of characters allowed is
+            {{
+              formNewProductControl.salesStartDate?.errors?.maxlength
+                ?.requiredLength
+            }}</small
+          >
+        </div>
+        <div class="d-flex p-col-12 p-jc-end pt-2">
+          <button
+            pButton
+            pRipple
+            type="submit"
+            label="Submit"
+            class="p-button-raised p-button-sm mr-2 col-5 col-md-2"
+            [disabled]="this.formNewProduct.invalid"
+            *ngIf="!formSubmitted"
+          ></button>
+          <button
+            pButton
+            pRipple
+            type="button"
+            label="Cancel"
+            class="p-button-raised p-button-sm p-button-secondary col-5 col-md-2"
+            (click)="resetForm()"
+            *ngIf="!formSubmitted"
+          ></button>
+        </div>
       </div>
-      <div class="p-field p-col-12 p-md-6">
-        <label for="productId">Product Id</label>
-        <p-inputNumber
-          inputId="productId"
-          mode="decimal"
-          [useGrouping]="false"
-          maxLength="13"
-          [(ngModel)]="text1"
-          [required]="true"
-        >
-        </p-inputNumber>
-      </div>
-      <!-- <p-divider class="col-12" ></p-divider> -->
-      <div class="p-field p-col-12 p-md-6">
-        <label for="city">Product Manager</label>
-        <input id="city" type="text" pInputText maxlength="30" />
-      </div>
-      <div class="p-field p-col-12 p-md-6">
-        <label for="salesStartDate">Sales Start Date</label>
-        <p-calendar
-          [(ngModel)]="date1"
-          [showIcon]="true"
-          inputId="salesStartDate"
-          maxlength="10"
-          [required]="true"
-        ></p-calendar>
-      </div>
-      <!-- <p-divider class="col-12"></p-divider> -->
-      <div class="d-flex p-col-12 p-jc-end pt-2">
-        <button
-          pButton
-          pRipple
-          type="button"
-          label="Submit"
-          class="p-button-raised p-button-sm mr-2 col-5 col-md-2"
-        ></button>
-        <button
-          pButton
-          pRipple
-          type="button"
-          label="Cancel"
-          class="p-button-raised p-button-sm p-button-secondary col-5 col-md-2"
-        ></button>
-      </div>
+    </form>
+    <p-messages [(value)]="msgs" styleClass="m-3 app-msgs"></p-messages>
+    <div class="d-flex p-col-12 p-jc-end pt-2">
+      <p-button
+        pRipple
+        label="Add more products"
+        class="p-button-raised p-button-sm p-button col-12 col-sm-6 col-md-3 col-lg-2 p-0 mr-n2"
+        (click)="addMoreProducts()"
+        *ngIf="formSubmitted && !inDialog"
+        icon="pi pi-plus"
+        iconPos="right"
+      ></p-button>
     </div>
   </p-card>
 </div>

@@ -1,3 +1,4 @@
-.p-inputtext.ng-touched.ng-invalid {
-    border-color: #dc3545;
-  }
+:host ::ng-deep .add-product-sales .p-card{
+    box-shadow: none;
+}
+

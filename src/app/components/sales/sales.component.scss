@@ -1,7 +1,7 @@
 .ps-bg-totals-table {
   background: var(--teal-50) !important;
 }
-// .p-datatable .ps-bg-totals-table.p-sortable-column .p-sortable-column-badge{
+
 :host ::ng-deep .p-datatable .p-sortable-column.p-highlight {
   color: var(--teal-600);
 }
